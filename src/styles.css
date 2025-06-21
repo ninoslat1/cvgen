@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-pf: "Playfair Display", "sans-serif"; /* Heading */
+    --font-scp: "Source Code Pro", "sans-serif";/* Body */
+    --color-primary: #2C3E50; /* Primary */
+    --color-acc: #E67E22; /* Accent */
+    --color-back: #ECF0F1; /* Background */
+    --color-card: #FFFFFF; /* Card */
+    --color-dark: #2D3436; /* Main Text */
+    --color-light: #7F8C8D; /* Secondary Text */
+}
