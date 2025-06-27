@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { MainLayoutComponent } from '../Layouts/Main';
+import { MainLayoutComponent } from '../layouts/main-layout';
 import { HomeComponent } from '../pages/Home/Home';
-import { PlainLayoutComponent } from '../Layouts/Plain';
+import { PlainLayoutComponent } from '../layouts/plain-layout';
 import { GenerateComponent } from '../pages/Generate/Generate';
 
 export const routes: Routes = [

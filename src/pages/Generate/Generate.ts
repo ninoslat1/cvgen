@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 @Component({
   selector: 'app-generate',
   standalone: true,
-  templateUrl: 'Generate.html',
-  styleUrl: 'Generate.css'
+  templateUrl: 'generate.html',
+  styleUrl: 'generate.css'
 })
 export class GenerateComponent {}
