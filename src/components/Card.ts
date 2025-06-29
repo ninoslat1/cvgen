@@ -1,23 +1,21 @@
 import { Component, Input, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgIcon, NgIconsModule, provideIcons } from '@ng-icons/core';
-import { bootstrapMemory } from '@ng-icons/bootstrap-icons';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CommonModule, NgIconsModule, NgIcon],
+  imports: [CommonModule],
   template: `
     <div 
-      [ngClass]="className" 
-      class="font-scp text-sm text-dark shadow-2xl font-semibold rounded-2xl w-64 h-64"
+      class="w-72 sm:w-80 md:w-96 bg-back h-60 p-8 rounded-2xl shadow font-scp"
     >
     <div>
-    <div class="bg-blue-500">
-        <ng-icon *ngIf="icon" [name]="icon" class="text-2xl" />
+      <div class="py-2.5">
+        <!-- <ng-icon *ngIf="icon" [name]="icon" class="text-4xl font-bold" /> -->
+         <p class="font-sans tracking-wide text-lg font-extrabold">{{header}}</p>
       </div>
     </div>
-    <p>
+    <p class="text-gray-600 text-sm">
         {{ text }}
     </p>  
     </div>
@@ -25,7 +23,8 @@ import { bootstrapMemory } from '@ng-icons/bootstrap-icons';
 })
 
 export class Card {
-  @Input() text = 'Card';
-  @Input() icon?: string;
-  @Input() className = 'bg-card';
+  @Input() text = '';
+  @Input() header = "";
+  // @Input() icon?: string;
+
 }
