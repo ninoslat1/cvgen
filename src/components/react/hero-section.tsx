@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { FileText, Shield, Zap } from "lucide-react"
 
-export default function HeroSection() {
+export default function HeroSection({lang, locale}: {lang: string, locale: Record<string, string>}) {
   return (
     <section className="relative py-20 lg:py-32">
       <div className="container mx-auto px-4">
@@ -14,12 +14,11 @@ export default function HeroSection() {
 
           <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight font-bound dark:text-white">
             CVGen
-            <span className="font-manrope py-5 block text-2xl text-blue-600">Create Professional CVs with Privately & Securely</span>
+            <span className="font-manrope py-5 block text-2xl text-blue-600">{locale.Motto}</span>
           </h1>
 
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed dark:text-white font-manrope">
-            Build stunning resumes with complete privacy. Your data never leaves your browser - GDPR compliant by
-            design, completely free, and always secure.
+            {locale.Slogan}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

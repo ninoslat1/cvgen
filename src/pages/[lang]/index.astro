@@ -22,7 +22,7 @@ const locale = await getLocaleFromLang(lang);
 ---
 
 <Layout lang={lang} locale={locale}>
-  <HeroSection server:defer  />
+  <HeroSection server:defer  lang={lang} locale={locale}/>
   <FeatureSection server:defer  />
   <HowItWorksSection server:defer  />
   <CTASection server:defer  />
