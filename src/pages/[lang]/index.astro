@@ -1,0 +1,49 @@
+---
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "id" } },
+  ];
+}
+
+import HeroSection from '@/components/react/hero-section';
+import FeatureSection from "@/components/react/feature-section";
+import Footer from "@/components/react/footer";
+import Layout from '../../layouts/Layout.astro';
+import "@/styles/globals.css";
+import HowItWorksSection from '@/components/react/how-it-works';
+import CTASection from '@/components/react/cta-section';
+import { getLocaleFromLang } from "@/utils/getLocale";
+
+const { lang } = Astro.params;
+const locale = await getLocaleFromLang(lang);
+---
+
+<Layout lang={lang} locale={locale}>
+  <HeroSection server:defer  />
+  <FeatureSection server:defer  />
+  <HowItWorksSection server:defer  />
+  <CTASection server:defer  />
+  <Footer server:defer  />
+</Layout>
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+  const isDark = getThemePreference() === 'dark';
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+  if (typeof localStorage !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>
