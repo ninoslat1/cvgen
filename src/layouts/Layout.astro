@@ -1,3 +1,9 @@
+---
+import Header from "@/components/header.astro"
+import { ModeToggle } from "@/components/react/mode-toggler"
+import { ClientRouter } from "astro:transitions"
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,8 +11,17 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<ClientRouter/>
 		<title>Astro Basics</title>
 	</head>
+	<div class="flex justify-center sticky top-0 z-50 w-full border-b bg-white/95 dark:bg-slate-900/95 backdrop-blur light:supports-[backdrop-filter]:bg-white/60 h-12 items-center">
+		<div class="flex items-center justify-between w-full h-full px-4">
+			<ModeToggle client:only="react" />
+			<div class="justify-center mx-auto">
+				<Header />
+			</div>
+		</div>
+	</div>
 	<body>
 		<slot />
 	</body>

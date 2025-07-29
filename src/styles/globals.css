@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Unbounded:wght@200..900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-manrope: "Manrope", "sans-serif";
+  --font-bound: "Unbounded", "sans-serif";
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -118,3 +121,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes fadeSlideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .motion-safe\:animate-fade-slide-down {
+    @apply motion-safe:animate-[fadeSlideDown_0.5s_ease-out_both];
+  }
+}
+
+
