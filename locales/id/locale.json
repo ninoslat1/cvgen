@@ -1,8 +1,16 @@
 {
+    "Dark": "Gelap",
+    "Light": "Terang",
+    "System": "Sistem",
     "Home": "Beranda",
     "Features": "Fitur",
     "How It Works": "Cara Kerja",
     "Privacy": "Privasi",
-    "Motto": "Buat CV-mu dengan Profesional, Rahasia dan Aman",
-    "Slogan": "Buat CV yang menakjubkan dengan privasi penuh sesuai dengan GDPR secara desain, gratis, dan aman."
+    "Motto": "Buat CV Kamu dengan Mudah, Aman, dan Profesional",
+    "Slogan": "Buat CV keren dengan perlindungan privasi maksimal sesuai standar GDPR. Gratis, aman, dan mudah digunakan.",
+    "Create": "Buat Sekarang",
+    "Example": "Lihat Contoh",
+    "Feature1": "100% Gratis Selamanya",
+    "Feature2": "Privasi Terjamin Sesuai GDPR",
+    "Feature3": "Tanpa Pengumpulan Data"
 }

@@ -8,25 +8,25 @@ export async function getStaticPaths() {
   ];
 }
 
-import HeroSection from '@/components/react/hero-section';
-import FeatureSection from "@/components/react/feature-section";
-import Footer from "@/components/react/footer";
 import Layout from '../../layouts/Layout.astro';
 import "@/styles/globals.css";
-import HowItWorksSection from '@/components/react/how-it-works';
-import CTASection from '@/components/react/cta-section';
 import { getLocaleFromLang } from "@/utils/getLocale";
+import Footer from '@/components/Footer.astro';
+import CTA from '@/components/CTA.astro';
+import Feature from '@/components/Feature.astro';
+import Hero from '@/components/Hero.astro';
+import Step from '@/components/Step.astro';
 
 const { lang } = Astro.params;
 const locale = await getLocaleFromLang(lang);
 ---
 
 <Layout lang={lang} locale={locale}>
-  <HeroSection server:defer  lang={lang} locale={locale}/>
-  <FeatureSection server:defer  />
-  <HowItWorksSection server:defer  />
-  <CTASection server:defer  />
-  <Footer server:defer  />
+  <Hero server:defer lang={lang} locale={locale}/>
+  <Feature server:defer />
+  <Step server:defer />
+  <CTA server:defer />
+  <Footer server:defer />
 </Layout>
 
 <script is:inline>

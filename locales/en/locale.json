@@ -1,8 +1,16 @@
 {
+    "Dark": "Dark",
+    "Light": "Light",
+    "System": "System",
     "Home": "Home",
     "Features": "Features",
     "How It Works": "How It Works",
     "Privacy": "Privacy",
     "Motto" : "Create Professional CVs with Privately & Securely",
-    "Slogan": "Build stunning resumes with complete privacy. Your data never leaves your browser - GDPR compliant by design, completely free, and always secure."
+    "Slogan": "Build stunning resumes with complete privacy. Your data never leaves your browser - GDPR compliant by design, completely free, and always secure.",
+    "Create": "Start Creating Now",
+    "Example": "View Examples",
+    "Feature1": "100% Free Forever",
+    "Feature2": "GDPR Compliant by Design",
+    "Feature3": "No Data Collection"
 }

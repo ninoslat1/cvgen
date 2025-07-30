@@ -13,7 +13,7 @@ export default function Header({lang, locale}: {lang: string, locale: Record<str
       <NavigationMenuList>
         <NavigationMenuItem>
             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                <a href="/" className="dark:bg-transparent">{locale.Home}</a>
+                <a href="/" className="dark:bg-transparent motion-safe:animate-fade-slide-down">{locale.Home}</a>
             </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -39,4 +39,3 @@ export default function Header({lang, locale}: {lang: string, locale: Record<str
   </NavigationMenu>
   )
 }
-
