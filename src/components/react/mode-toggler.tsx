@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useEffect, useState } from "react"
 
-export function ModeToggle() {
+export function ModeToggle({locale}: {locale: Record<string, string>}) {
   const [theme, setThemeState] = useState<
     "theme-light" | "dark" | "system"
   >("theme-light")
@@ -28,7 +28,7 @@ export function ModeToggle() {
   }, [theme])
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
           <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
@@ -38,13 +38,13 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setThemeState("theme-light")}>
-          Light
+          {locale.Light}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState("dark")}>
-          Dark
+          {locale.Dark}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setThemeState("system")}>
-          System
+          {locale.System}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

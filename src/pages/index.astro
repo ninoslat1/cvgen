@@ -1,18 +1,19 @@
 ---
-import { getLocaleFromLang } from "@/utils/getLocale";
-export async function getStaticPaths() {
-  return [
-    { params: { lang: "en" } },
-    { params: { lang: "id" } },
-  ];
-}
-
-const { lang } = Astro.params;
-const locale = await getLocaleFromLang(lang);
-
-if(locale){
-    return Astro.redirect(`/${locale}/`);
-} else {
-    return Astro.redirect(``)
-}
+import { Fragment } from "astro/jsx-runtime";
 ---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <script type="module">
+      const supportedLangs = ["en", "id"];
+      const userLang = navigator.language.slice(0, 2).toLowerCase();
+
+      const lang = supportedLangs.includes(userLang) ? userLang : "en";
+      window.location.replace(`/${lang}/`);
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>

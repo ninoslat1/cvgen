@@ -19,9 +19,9 @@ const {lang, locale} = Astro.props
 	<!-- Fixed header with proper z-index and positioning -->
     <header class="fixed top-0 left-0 right-0 z-[9999] w-full border-b bg-white/95 dark:bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-slate-900/60 h-12 shadow-sm">
       <div class="flex items-center justify-between w-full h-full px-4 max-w-7xl mx-auto" transition:animate={fade({ duration: '0.5s'})}>
-        <ModeToggle client:only="react" />
+        <ModeToggle client:only="react" locale={locale}/>
         <div class="flex justify-center mx-auto">
-          <Header client:only="react" lang={lang} locale={locale}/>
+          <Header client:only="react" locale={locale}/>
         </div>
       </div>
     </header>

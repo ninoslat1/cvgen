@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  cvgen:
+    image: cvgen:latest
+    container_name: cvgen
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:4321:4321"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always

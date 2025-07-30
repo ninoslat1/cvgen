@@ -22,11 +22,11 @@ const locale = await getLocaleFromLang(lang);
 ---
 
 <Layout lang={lang} locale={locale}>
-  <Hero server:defer lang={lang} locale={locale}/>
-  <Feature server:defer />
-  <Step server:defer />
-  <CTA server:defer />
-  <Footer server:defer />
+  <Hero server:defer locale={locale}/>
+  <Feature server:defer locale={locale}/>
+  <Step server:defer locale={locale}/>
+  <CTA server:defer locale={locale}/>
+  <Footer server:defer locale={locale}/>
 </Layout>
 
 <script is:inline>

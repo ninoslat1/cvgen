@@ -7,7 +7,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-export default function Header({lang, locale}: {lang: string, locale: Record<string, string>}) {
+export default function Header({locale}: {locale: Record<string, string>}) {
   return (    
     <NavigationMenu viewport={false}>
       <NavigationMenuList>

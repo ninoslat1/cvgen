@@ -2,62 +2,54 @@
 import Marquee from "@/components/ui/marquee"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Shield, Database, Zap, Lock, Download, Palette } from "lucide-react"
+const {locale} = Astro.props
 const features = [
     {
       icon: Zap,
-      title: "100% Free",
-      description: "No hidden costs, no premium plans, no subscriptions. Create unlimited CVs completely free.",
+      title: `${locale.FeatureCard1Tag}`,
+      description: `${locale.FeatureCard1}`,
       color: "text-green-500",
     },
     {
       icon: Shield,
-      title: "GDPR Compliant by Design",
-      description: "Built from the ground up with privacy regulations in mind. Your rights are protected by default.",
+      title: `${locale.FeatureCard2Tag}`,
+      description: `${locale.FeatureCard2}`,
       color: "text-blue-500",
     },
     {
       icon: Database,
-      title: "Local Data Storage",
-      description: "All your data stays in your browser. No servers, no cloud storage.",
+      title: `${locale.FeatureCard3Tag}`,
+      description: `${locale.FeatureCard3}`,
       color: "text-purple-500",
     },
     {
-      icon: Lock,
-      title: "Zero Data Collection",
-      description:
-        "We don't collect, store, or transmit any of your personal information. Complete privacy guaranteed.",
-      color: "text-red-500",
-    },
-    {
       icon: Download,
-      title: "Export Anywhere",
-      description: "Download your CV as PDF, Word, or other formats. Your data, your control, your choice.",
+      title: `${locale.FeatureCard5Tag}`,
+      description: `${locale.FeatureCard5}`,
       color: "text-orange-500",
     },
     {
       icon: Palette,
-      title: "Professional Templates",
-      description: "Choose from beautiful, ATS-friendly templates designed to help you stand out to employers.",
+      title: `${locale.FeatureCard6Tag}`,
+      description: `${locale.FeatureCard6}`,
       color: "text-indigo-500",
     },
   ]
 ---
-
     <section id="features" class="py-20 bg-gray-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-bound">Why Choose CVGen?</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-bound">{locale.Reason}</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto font-manrope">
-            Experience the perfect balance of powerful features and complete privacy protection.
+            {locale.Slogan2}
           </p>
         </div>
 
         <div class="relative">
-          {/* Gradient overlays for smooth fade effect */}
           <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
           <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
 
-          <Marquee pauseOnHover className="[--duration:35s]">
+          <Marquee className="[--duration:35s]">
             {features.map((feature, index) => (
               <Card
                 key={index}

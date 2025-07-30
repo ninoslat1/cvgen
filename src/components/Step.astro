@@ -1,34 +1,36 @@
 ---
 import { Card, CardContent } from "@/components/ui/card"
 import { FileText, Edit, Download, ArrowRight } from "lucide-react"
+const {lang, locale} = Astro.props
 const steps = [
     {
       icon: FileText,
-      title: "Choose Template",
-      description: "Select from our collection of professional, ATS-friendly CV templates.",
+      title: `${locale.StepCard1Tag}`,
+      description: `${locale.StepCard1}`,
       color: "bg-blue-500",
     },
     {
       icon: Edit,
-      title: "Fill Your Details",
-      description: "Add your information directly in your browser. Everything stays local and private.",
+      title: `${locale.StepCard2Tag}`,
+      description: `${locale.StepCard2}`,
       color: "bg-green-500",
     },
     {
       icon: Download,
-      title: "Download & Apply",
-      description: "Export your polished CV and start applying to your dream jobs immediately.",
+      title: `${locale.StepCard3Tag}`,
+      description: `${locale.StepCard3}`,
       color: "bg-purple-500",
     },
   ]
+
 ---
 
     <section id="how-it-works" class="py-20">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-bound dark:text-white">How It Works</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 font-bound dark:text-white">{locale.StepHeader}</h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto dark:text-white font-manrope">
-            Create your professional CV in just three simple steps. No registration required.
+            {locale.StepSlogan}
           </p>
         </div>
 
