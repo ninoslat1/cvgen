@@ -1,0 +1,22 @@
+---
+import GenerateLayout from '@/layouts/GenerateLayout.astro';
+import { getLocaleFromLang } from '@/utils/getLocale';
+import Sidebar from '@/components/Sidebar.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: "en" } },
+    { params: { lang: "id" } },
+  ];
+}
+import "@/styles/globals.css";
+import AppSidebar from '@/components/AppSidebar.astro';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import SidebarClient from '@/components/react/client-sidebar';
+const { lang } = Astro.params;
+const locale = await getLocaleFromLang(lang);
+---
+
+<GenerateLayout lang={lang} locale={locale}>
+    <SidebarClient client:only="react"/>
+</GenerateLayout>

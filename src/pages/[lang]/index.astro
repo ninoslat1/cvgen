@@ -8,7 +8,6 @@ export async function getStaticPaths() {
   ];
 }
 
-import Layout from '../../layouts/Layout.astro';
 import "@/styles/globals.css";
 import { getLocaleFromLang } from "@/utils/getLocale";
 import Footer from '@/components/Footer.astro';
@@ -16,18 +15,19 @@ import CTA from '@/components/CTA.astro';
 import Feature from '@/components/Feature.astro';
 import Hero from '@/components/Hero.astro';
 import Step from '@/components/Step.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 
 const { lang } = Astro.params;
 const locale = await getLocaleFromLang(lang);
 ---
 
-<Layout lang={lang} locale={locale}>
-  <Hero server:defer locale={locale}/>
+<MainLayout lang={lang} locale={locale}>
+  <Hero server:defer locale={locale} lang={lang}/>
   <Feature server:defer locale={locale}/>
   <Step server:defer locale={locale}/>
-  <CTA server:defer locale={locale}/>
+  <CTA server:defer locale={locale} lang={lang}/>
   <Footer server:defer locale={locale}/>
-</Layout>
+</MainLayout>
 
 <script is:inline>
   const getThemePreference = () => {

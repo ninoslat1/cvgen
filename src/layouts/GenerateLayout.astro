@@ -1,0 +1,31 @@
+---
+import { ModeToggle } from "@/components/react/mode-toggler"
+import { ClientRouter } from "astro:transitions"
+import { fade } from 'astro:transitions';
+const {lang, locale} = Astro.props
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<ClientRouter/>
+		<title>CVGen</title>
+	</head>
+	<!-- Fixed header with proper z-index and positioning -->
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

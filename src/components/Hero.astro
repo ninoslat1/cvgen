@@ -1,7 +1,7 @@
 ---
 import { Button } from "@/components/ui/button"
 import { FileText, Shield, Zap } from "lucide-react"
-const {locale} = Astro.props
+const {locale, lang} = Astro.props
 ---
 
     <section class="relative py-20 lg:py-32">
@@ -24,7 +24,7 @@ const {locale} = Astro.props
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 motion-safe:animate-appear">
             <Button size="lg">
-              <a href="/generate">
+              <a href=`/${lang}/generate`>
                 {locale.Create}
               </a>
             </Button>

@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Shield, Zap, Heart } from "lucide-react"
-const {locale} = Astro.props
+const {locale, lang} = Astro.props
 ---
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
@@ -15,7 +15,7 @@ const {locale} = Astro.props
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button size="lg">
-            <a href="/generate">
+            <a href=`/${lang}/generate`>
                 {locale.CTACreate}
             </a>
           </Button>
