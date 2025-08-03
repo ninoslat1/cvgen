@@ -1,11 +1,15 @@
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { AppSidebar } from './app-sidebar';
+// app/page.tsx
 
-export default function SidebarClient() {
+import { AppSidebar } from "./templates/app-sidebar";
+
+export default function ClientSidebar() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <SidebarTrigger />
-    </SidebarProvider>
+    <>
+      <AppSidebar position="left" />
+      <main className="flex-1 p-8">
+        <h1>Konten</h1>
+      </main>
+      <AppSidebar position="right" />
+    </>
   );
 }

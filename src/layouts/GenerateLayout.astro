@@ -1,5 +1,6 @@
 ---
 import { ModeToggle } from "@/components/react/mode-toggler"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { ClientRouter } from "astro:transitions"
 import { fade } from 'astro:transitions';
 const {lang, locale} = Astro.props
@@ -17,7 +18,9 @@ const {lang, locale} = Astro.props
 	</head>
 	<!-- Fixed header with proper z-index and positioning -->
 	<body>
-		<slot />
+		<div class="flex min-h-screen">
+      <slot />
+    </div>
 	</body>
 </html>
 
