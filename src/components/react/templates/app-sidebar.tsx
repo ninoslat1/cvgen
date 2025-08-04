@@ -1,48 +1,47 @@
-// components/AppSidebar.tsx
-
-"use client";
-
+import { SidebarLeft } from "@/components/sidebar-left"
+import { SidebarRight } from "@/components/sidebar-right"
 import {
-  Sidebar,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
+import {
+  SidebarInset,
   SidebarProvider,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuItem,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { Home, Settings } from "lucide-react";
+} from "@/components/ui/sidebar"
 
-interface AppSidebarProps {
-  position?: "left" | "right";
-}
-
-export function AppSidebar({ position = "left" }: AppSidebarProps) {
+export default function AppSidebar() {
   return (
     <SidebarProvider>
-      <Sidebar className={`w-64 ${position === "left" ? "border-r" : "border-l"}`}>
-        <SidebarTrigger />
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>{`Menu ${position === "left" ? "Kiri" : "Kanan"}`}</SidebarGroupLabel>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <a href="#" className="flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  {position === "left" ? "Beranda" : "Info"}
-                </a>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <a href="#" className="flex items-center gap-2">
-                  <Settings className="w-4 h-4" />
-                  {position === "left" ? "Pengaturan" : "Akun"}
-                </a>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroup>
-        </SidebarContent>
-      </Sidebar>
+      <SidebarLeft />
+      <SidebarInset>
+        <header className="bg-background sticky top-0 flex h-14 shrink-0 items-center gap-2">
+          <div className="flex flex-1 items-center gap-2 px-3">
+            <SidebarTrigger />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
+            />
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbPage className="line-clamp-1">
+                    Project Management & Task Tracking
+                  </BreadcrumbPage>
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
+        </header>
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          <div className="bg-muted/50 mx-auto h-24 w-full max-w-3xl rounded-xl" />
+          <div className="bg-muted/50 mx-auto h-[100vh] w-full max-w-3xl rounded-xl" />
+        </div>
+      </SidebarInset>
+      <SidebarRight />
     </SidebarProvider>
-  );
+  )
 }

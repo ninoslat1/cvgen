@@ -2,7 +2,8 @@
 import GenerateLayout from '@/layouts/GenerateLayout.astro';
 import { getLocaleFromLang } from '@/utils/getLocale';
 import "@/styles/globals.css";
-import ClientSidebar from '@/components/react/client-sidebar';
+// import ClientSidebar from '@/components/react/client-sidebar';
+import AppSidebar from '@/components/react/templates/app-sidebar';
 
 export async function getStaticPaths() {
   return [
@@ -15,5 +16,5 @@ const locale = await getLocaleFromLang(lang);
 ---
 
 <GenerateLayout lang={lang} locale={locale}>
-    <ClientSidebar client:only="react"/>
+    <AppSidebar client:only="react"/>
 </GenerateLayout>
