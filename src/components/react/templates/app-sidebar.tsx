@@ -12,8 +12,20 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { useStore } from '@nanostores/react'
+import { cvTitle } from '@/stores/cv'
+import { useRef } from "react"
 
 export default function AppSidebar() {
+  const $cvTitle = useStore(cvTitle)
+  const inputRef = useRef<HTMLTextAreaElement>(null)
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault() // biar nggak bikin newline
+      inputRef.current?.blur()
+    }
+  }
+  
   return (
     <SidebarProvider>
       <SidebarLeft />
@@ -28,9 +40,16 @@ export default function AppSidebar() {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="line-clamp-1">
-                    Project Management & Task Tracking
-                  </BreadcrumbPage>
+                  <BreadcrumbItem>
+                  <textarea
+                    ref={inputRef}
+                    value={$cvTitle}
+                    onChange={(e) => cvTitle.set(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    className="resize-none bg-transparent py-1 px-2 border-none focus:border-blue-500 focus:border-2 rounded-sm"
+                    rows={1}
+                  />
+                </BreadcrumbItem>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
