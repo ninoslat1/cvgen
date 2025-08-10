@@ -5,14 +5,8 @@ import "@/styles/globals.css";
 // import ClientSidebar from '@/components/react/client-sidebar';
 import AppSidebar from '@/components/react/templates/app-sidebar';
 
-export async function getStaticPaths() {
-  return [
-    { params: { lang: "en" } },
-    { params: { lang: "id" } },
-  ];
-}
 const { lang } = Astro.params;
-const locale = await getLocaleFromLang(lang);
+const locale = await getLocaleFromLang(lang || "en");
 ---
 
 <GenerateLayout lang={lang} locale={locale}>
