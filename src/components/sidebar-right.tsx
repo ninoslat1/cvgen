@@ -19,23 +19,30 @@ import { NavMain } from "./nav-main"
 import { NavFavorites } from "./nav-favorites"
 import { NavWorkspaces } from "./nav-workspaces"
 import { NavSecondary } from "./nav-secondary"
+import { activeSection } from "@/stores/cv"
+import { useStore } from "@nanostores/react"
+import Detail from "./react/detail-info"
+import { Separator } from "./ui/separator"
 
 
 export function SidebarRight({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
+  const section = useStore(activeSection)
   return (
     <Sidebar
       collapsible="none"
-      className="sticky top-0 hidden h-svh border-l lg:flex"
+      className="sticky top-0 hidden h-svh border-l lg:flex w-1/5"
       {...props}
     >
       <SidebarHeader>
         
         
       </SidebarHeader>
-      <SidebarContent>
-        
+      <SidebarContent className="px-4">
+        <p className='font-bold font-bound text-lg'>Personal Info</p>
+        <Separator/>
+        {section === "Personal Info" && <Detail/>}
       </SidebarContent>
       <SidebarRail />
     </Sidebar>

@@ -15,13 +15,15 @@ import {
 import { useStore } from '@nanostores/react'
 import { cvTitle } from '@/stores/cv'
 import { useRef } from "react"
+import { PenIcon } from "lucide-react"
+import { Input } from "@/components/ui/input"
 
 export default function AppSidebar() {
   const $cvTitle = useStore(cvTitle)
-  const inputRef = useRef<HTMLTextAreaElement>(null)
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      e.preventDefault() // biar nggak bikin newline
+      e.preventDefault()
       inputRef.current?.blur()
     }
   }
@@ -41,14 +43,17 @@ export default function AppSidebar() {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbItem>
-                  <textarea
-                    ref={inputRef}
-                    value={$cvTitle}
-                    onChange={(e) => cvTitle.set(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    className="resize-none bg-transparent py-1 px-2 border-none focus:border-blue-500 focus:border-2 rounded-sm"
-                    rows={1}
-                  />
+                  <div className="flex space-x-4 items-center group">
+                    <Input
+                      ref={inputRef}
+                      value={$cvTitle}
+                      onChange={(e) => cvTitle.set(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      className="resize-none bg-transparent py-1 px-2 border-none shadow-none focus:border-blue-500 focus:border-2 rounded-sm"
+                      // rows={1}
+                    />
+                    <PenIcon width={18} height={18} className="opacity-0 group-hover:opacity-100 group-focus:opacity-0 transition-opacity duration-200"/>
+                  </div>
                 </BreadcrumbItem>
                 </BreadcrumbItem>
               </BreadcrumbList>

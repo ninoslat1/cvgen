@@ -8,12 +8,14 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar"
+import { activeSection } from "@/stores/cv";
 
 export function CVSection({
   section,
 }: {
   section: { label: string; icon: React.ElementType }[]
 }) {
+  
   return (
     <>
       {section.map((item, index) => (
@@ -25,7 +27,8 @@ export function CVSection({
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton
-                    className="text-sm font-medium hover:text-sidebar-accent-foreground transition-colors hover:bg-transparent gap-2"
+                    className="text-sm font-medium hover:text-sidebar-accent-foreground transition-colors hover:bg-transparent gap-2 hover:cursor-pointer"
+                    onClick={() => activeSection.set(item.label)}
                   >
                     <item.icon className="w-4 h-4" />
                     {item.label}

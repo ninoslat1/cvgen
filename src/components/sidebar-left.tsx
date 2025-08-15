@@ -1,27 +1,6 @@
 "use client"
 
 import * as React from "react"
-import {
-  AudioWaveform,
-  Award,
-  Blocks,
-  Briefcase,
-  Calendar,
-  Command,
-  FileText,
-  FolderOpen,
-  GraduationCap,
-  Home,
-  Inbox,
-  MessageCircleQuestion,
-  Plus,
-  Search,
-  Settings2,
-  Sparkles,
-  Trash2,
-  User,
-  Wrench,
-} from "lucide-react"
 
 import { NavFavorites } from "@/components/nav-favorites"
 import { NavMain } from "@/components/nav-main"
@@ -39,16 +18,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { CVSection } from "./cv-section"
-
-const data = [
-  { label: "Headers", icon: User },
-  { label: "Summary", icon: FileText },
-  { label: "Skills", icon: Wrench },
-  { label: "Professional Experience", icon: Briefcase },
-  { label: "Educations", icon: GraduationCap },
-  { label: "Certifications", icon: Award },
-  { label: "Projects", icon: FolderOpen },
-];
+import { data } from "@/stores/sidebar"
 
 export function SidebarLeft({
   ...props
@@ -57,7 +27,7 @@ export function SidebarLeft({
 
     <Sidebar className="border-r-0" {...props}>
       <SidebarHeader className="border-sidebar-border h-16 border-b">
-        <p className="text-center font-bold text-md">Section</p>
+        <p className="text-center font-bold text-xl tracking-wider font-bound">Resume</p>
       </SidebarHeader>
       <SidebarContent>
         <CVSection section={data} />
